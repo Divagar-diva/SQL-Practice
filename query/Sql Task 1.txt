@@ -1,0 +1,83 @@
+Task 1
+
+Create a table named studentsmarks with the below stucture:
+1. Create table studentsmarks (
+    student_id number primary key,
+    student_name varchar2(100),
+    subject varchar2(50),
+    marks number,
+    exam_date date,
+    department varchar2(20)
+);
+2. Insert all
+  into studentsmarks (student_id, student_name, subject, marks, exam_date, department) values (1, 'alice johnson', 'math', 88, date '2025-06-01', 'science')
+  into studentsmarks (student_id, student_name, subject, marks, exam_date, department) values (2, 'bob smith', 'physics', 75, date '2025-06-01', 'science')
+  into studentsmarks (student_id, student_name, subject, marks, exam_date, department) values (3, 'carol white', 'chemistry', 91, date '2025-06-02', 'science')
+  into studentsmarks (student_id, student_name, subject, marks, exam_date, department) values (4, 'david brown', 'biology', 67, date '2025-06-03', 'science')
+  into studentsmarks (student_id, student_name, subject, marks, exam_date, department) values (5, 'emma davis', 'math', 82, date '2025-06-01', 'science')
+  into studentsmarks (student_id, student_name, subject, marks, exam_date, department) values (6, 'frank miller', 'english', 78, date '2025-06-04', 'arts')
+  into studentsmarks (student_id, student_name, subject, marks, exam_date, department) values (7, 'grace wilson', 'history', 85, date '2025-06-04', 'arts')
+  into studentsmarks (student_id, student_name, subject, marks, exam_date, department) values (8, 'henry moore', 'philosophy', 89, date '2025-06-05', 'arts')
+  into studentsmarks (student_id, student_name, subject, marks, exam_date, department) values (9, 'isabella taylor', 'english', 93, date '2025-06-04', 'arts')
+  into studentsmarks (student_id, student_name, subject, marks, exam_date, department) values (10, 'jack anderson', 'history', 70, date '2025-06-05', 'arts')
+  into studentsmarks (student_id, student_name, subject, marks, exam_date, department) values (11, 'kylie thomas', 'economics', 88, date '2025-06-06', 'commerce')
+  into studentsmarks (student_id, student_name, subject, marks, exam_date, department) values (12, 'liam martin', 'accounting', 74, date '2025-06-06', 'commerce')
+  into studentsmarks (student_id, student_name, subject, marks, exam_date, department) values (13, 'mia lee', 'business law', 90, date '2025-06-07', 'commerce')
+  into studentsmarks (student_id, student_name, subject, marks, exam_date, department) values (14, 'noah walker', 'statistics', 86, date '2025-06-07', 'commerce')
+  into studentsmarks (student_id, student_name, subject, marks, exam_date, department) values (15, 'olivia hall', 'economics', 77, date '2025-06-06', 'commerce')
+  into studentsmarks (student_id, student_name, subject, marks, exam_date, department) values (16, 'paul young', 'computer science', 92, date '2025-06-08', 'engineering')
+  into studentsmarks (student_id, student_name, subject, marks, exam_date, department) values (17, 'quinn allen', 'electronics', 84, date '2025-06-08', 'engineering')
+  into studentsmarks (student_id, student_name, subject, marks, exam_date, department) values (18, 'ruby king', 'mechanical engg.', 81, date '2025-06-09', 'engineering')
+  into studentsmarks (student_id, student_name, subject, marks, exam_date, department) values (19, 'samuel wright', 'civil engg.', 79, date '2025-06-09', 'engineering')
+  into studentsmarks (student_id, student_name, subject, marks, exam_date, department) values (20, 'tina scott', 'computer science', 95, date '2025-06-08', 'engineering')
+Select * from dual;
+3. Select student_name,marks from studentsmarks ;
+4. Select distinct department from studentsmarks;
+5. Select * from studentsmarks where marks > 75;
+6. Select * from studentsmarks where department = 'computer science';
+7. Select * from studentsmarks where exam_date > date '2024-06-01';
+8. Select * from studentsmarks where subject = 'maths';
+9. Select * from studentsmarks where marks between 60 and 90;
+10. Select count(*) as record from studentsmarks;
+11. Select department, count(*) as total_students
+     from studentsmarks group by department;
+12. Select max(marks) as highest_marks
+       from studentsmarks;
+13. Select department, sum(marks) as total_marks
+      from studentsmarks
+      where subject in ('math', 'physics', 'chemistry')
+   group by department
+   having sum(marks) > 200;
+14.select department, count(*) as num_student 
+From studentsmarks 
+Where marks between 60 and 90
+Group by department having count(*) > 5;
+15. Select subject, avg(marks) as average_marks
+From studentsmarks
+Where department = 'commerce'
+Group by subject
+Having avg(marks) < 65;
+16. Select subject, max(marks) as top_score
+From studentsmarks
+Group by subject;
+17. Select department, min(marks) as min_marks
+From studentsmarks
+Where subject in ('english', 'history')
+Group by department
+Having min(marks) > 40;
+18. Select student_name, department, subject, marks, exam_date
+From studentsmarks
+Where department in ('science', 'arts')
+And marks between 70 and 90
+And exam_date > date '2024-06-01';
+19. Select subject, avg(marks) as average_marks
+From studentsmarks
+Group by subject
+Having avg(marks) > 75;
+20. Select sum(marks) as total_marks
+From studentsmarks
+Where student_name in ('henry moore', 'bob smith', 'emma davis');
+21. Select department, count(*) as num_students, avg(marks) as avg_marks
+From studentsmarks
+Group by department
+Having avg(marks) > 80 and count(*) > 3;
